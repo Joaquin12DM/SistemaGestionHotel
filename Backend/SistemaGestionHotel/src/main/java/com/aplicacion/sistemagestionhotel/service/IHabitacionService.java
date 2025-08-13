@@ -1,7 +1,6 @@
-package service;
+package com.aplicacion.sistemagestionhotel.service;
 
-import entity.Habitacion;
-import org.springframework.stereotype.Service;
+import com.aplicacion.sistemagestionhotel.entity.Habitacion;
 
 import java.util.List;
 import java.util.Optional;

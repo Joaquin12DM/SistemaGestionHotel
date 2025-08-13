@@ -1,6 +1,6 @@
-package repository;
+package com.aplicacion.sistemagestionhotel.repository;
 
-import entity.Hotel;
+import com.aplicacion.sistemagestionhotel.entity.Hotel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

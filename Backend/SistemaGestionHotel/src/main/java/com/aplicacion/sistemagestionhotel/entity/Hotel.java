@@ -1,14 +1,14 @@
-package entity;
+package com.aplicacion.sistemagestionhotel.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "hotel")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Hotel {
@@ -25,7 +25,11 @@ public class Hotel {
     @Column(name= "telefono_hotel",length = 20)
     private String telefonoHotel;
 
+    @Column(name = "imagen_url", length = 255)
+    private String imagenUrl;
+
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Habitacion> habitaciones;
 
 }

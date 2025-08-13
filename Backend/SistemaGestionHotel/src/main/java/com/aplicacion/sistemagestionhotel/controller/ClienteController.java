@@ -1,16 +1,16 @@
-package controller;
+package com.aplicacion.sistemagestionhotel.controller;
 
-import entity.Cliente;
+import com.aplicacion.sistemagestionhotel.entity.Cliente;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import repository.ClienteRepository;
-import service.IClienteService;
+import com.aplicacion.sistemagestionhotel.service.IClienteService;
 
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-@RestController(value = "/cliente")
+@RestController
+@RequestMapping("/cliente")
 public class ClienteController {
 
     private final IClienteService clienteService;
@@ -25,7 +25,7 @@ public class ClienteController {
         return clienteService.findById(id);
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public Cliente save(@RequestBody Cliente cliente) {
         return clienteService.save(cliente);
     }

@@ -1,15 +1,16 @@
-package controller;
+package com.aplicacion.sistemagestionhotel.controller;
 
-import entity.Hotel;
+import com.aplicacion.sistemagestionhotel.entity.Hotel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import service.IHotelService;
+import com.aplicacion.sistemagestionhotel.service.IHotelService;
 
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-@RestController(value = "/hotel")
+@RestController
+@RequestMapping("/hotel")
 public class HotelController {
 
     private final IHotelService hotelService;
@@ -24,7 +25,7 @@ public class HotelController {
         return hotelService.findById(id);
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public Hotel save(@RequestBody Hotel hotel) {
         return hotelService.save(hotel);
     }

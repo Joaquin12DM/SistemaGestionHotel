@@ -1,6 +1,6 @@
-package service;
+package com.aplicacion.sistemagestionhotel.service;
 
-import entity.Reserva;
+import com.aplicacion.sistemagestionhotel.entity.Reserva;
 
 import java.util.List;
 import java.util.Optional;

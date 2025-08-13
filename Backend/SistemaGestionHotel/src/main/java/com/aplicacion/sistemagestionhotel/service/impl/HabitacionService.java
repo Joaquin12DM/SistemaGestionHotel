@@ -1,11 +1,11 @@
-package service.impl;
+package com.aplicacion.sistemagestionhotel.service.impl;
 
 
-import entity.Habitacion;
+import com.aplicacion.sistemagestionhotel.entity.Habitacion;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import repository.HabitacionRepository;
-import service.IHabitacionService;
+import com.aplicacion.sistemagestionhotel.repository.HabitacionRepository;
+import com.aplicacion.sistemagestionhotel.service.IHabitacionService;
 
 import java.util.List;
 import java.util.Optional;

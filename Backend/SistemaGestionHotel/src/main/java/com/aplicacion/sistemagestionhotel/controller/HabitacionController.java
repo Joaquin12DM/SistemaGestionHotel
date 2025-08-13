@@ -1,16 +1,16 @@
-package controller;
+package com.aplicacion.sistemagestionhotel.controller;
 
-import entity.Habitacion;
+import com.aplicacion.sistemagestionhotel.entity.Habitacion;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import repository.HabitacionRepository;
-import service.IHabitacionService;
+import com.aplicacion.sistemagestionhotel.service.IHabitacionService;
 
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-@RestController(value = "/habitacion")
+@RestController
+@RequestMapping("/habitacion")
 public class HabitacionController {
 
     private final IHabitacionService habitacionService;
@@ -25,7 +25,7 @@ public class HabitacionController {
         return habitacionService.findById(id);
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public Habitacion save(@RequestBody Habitacion habitacion) {
         return habitacionService.save(habitacion);
     }

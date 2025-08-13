@@ -1,11 +1,10 @@
-package service.impl;
+package com.aplicacion.sistemagestionhotel.service.impl;
 
-import entity.Hotel;
+import com.aplicacion.sistemagestionhotel.entity.Hotel;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.HotelRepository;
-import service.IHotelService;
+import com.aplicacion.sistemagestionhotel.repository.HotelRepository;
+import com.aplicacion.sistemagestionhotel.service.IHotelService;
 
 import java.util.List;
 import java.util.Optional;
