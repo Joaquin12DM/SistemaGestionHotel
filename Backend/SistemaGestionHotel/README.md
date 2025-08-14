@@ -25,16 +25,16 @@ Este proyecto es una API REST desarrollada con Spring Boot para la gestión de h
 ### Reserva
 - `GET /reserva` - Obtiene todas las reservas.
 - `GET /reserva/{id}` - Obtiene una reserva por su ID.
-- `POST /reserva/save` - Crea o actualiza una reserva (requiere objeto Reserva).
-- `POST /reserva/saveReserva` - Crea una reserva con datos de cliente y habitación (requiere objeto ReservaClienteDTO).
+- `POST /reserva/save` - Crea o actualiza una reserva.
 - `DELETE /reserva/{id}` - Elimina una reserva por su ID.
 
 ## Notas
 - Todos los endpoints aceptan y devuelven datos en formato JSON.
 - Para crear o actualizar entidades, envíe el objeto correspondiente en el cuerpo de la petición.
-- El endpoint `POST /reserva/saveReserva` permite crear una reserva junto con el cliente y la habitación asociada, usando el DTO `ReservaClienteDTO`.
 
 ## Ejemplo de uso
 ```bash
 curl -X GET http://localhost:8082/cliente
 ```
+
+
