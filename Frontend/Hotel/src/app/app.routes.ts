@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { Home } from './component/paguinas/home/home';
-import { Hotel } from './component/paguinas/hotel/hotel';
+import { List_habitacion } from './component/habitacion/listar_habitacion/list_habitacion';
+import { Home } from './component/home/home';
 
 export const routes: Routes = [
 
     {path: "", component: Home},
-    {path: 'Hotel' , component: Hotel}
+    {path: "habitaciones", component: List_habitacion}
     
 ];
