@@ -1,7 +1,7 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.mapper;
 
 import com.aplicacion.sistemagestionhotel.domain.model.Hotel;
-import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity.HotelEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.HotelEntity;
 import java.util.List;
 import org.mapstruct.Mapper;
 

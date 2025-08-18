@@ -1,4 +1,4 @@
-package com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity;
+package com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;

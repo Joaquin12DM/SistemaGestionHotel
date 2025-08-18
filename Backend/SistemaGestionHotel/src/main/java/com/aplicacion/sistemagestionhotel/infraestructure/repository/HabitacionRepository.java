@@ -1,7 +1,6 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.repository;
 
-import com.aplicacion.sistemagestionhotel.domain.enums.EstadoHabitacion;
-import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity.HabitacionEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.HabitacionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

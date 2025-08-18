@@ -1,5 +1,4 @@
-package com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity;
-import com.aplicacion.sistemagestionhotel.domain.enums.EstadoHabitacion;
+package com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,6 +32,9 @@ public class HabitacionEntity {
 
     @Column(name = "capacidad", nullable = false)
     private int capacidad;
+
+    @Column(name = "descripcion" , length = 255)
+    private String Descripcion;
 
     @Column(name = "imagen_url", length = 255)
     private String imagenUrl;

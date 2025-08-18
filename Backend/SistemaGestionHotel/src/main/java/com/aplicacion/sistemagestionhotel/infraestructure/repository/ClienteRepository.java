@@ -1,6 +1,6 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.repository;
 
-import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity.ClienteEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.ClienteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -3,7 +3,7 @@ package com.aplicacion.sistemagestionhotel.infraestructure.mapper;
 import com.aplicacion.sistemagestionhotel.application.dto.ReservaClienteDTO;
 import com.aplicacion.sistemagestionhotel.domain.model.Cliente;
 import com.aplicacion.sistemagestionhotel.domain.model.Habitacion;
-import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity.ReservaEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.ReservaEntity;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

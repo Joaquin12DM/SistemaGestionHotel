@@ -1,7 +1,7 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.service.impl;
 
 import com.aplicacion.sistemagestionhotel.domain.model.Hotel;
-import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity.HotelEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.HotelEntity;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.HotelMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

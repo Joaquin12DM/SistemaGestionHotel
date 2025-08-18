@@ -22,5 +22,6 @@ public class Habitacion {
     private BigDecimal precioPorNoche;
     private boolean disponible;
     private int capacidad;
+    private String Descripcion;
     private String imagenUrl;
 }

@@ -1,9 +1,8 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.service.impl;
 
 
-import com.aplicacion.sistemagestionhotel.domain.enums.EstadoHabitacion;
 import com.aplicacion.sistemagestionhotel.domain.model.Habitacion;
-import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entity.HabitacionEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.HabitacionEntity;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.HabitacionMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
