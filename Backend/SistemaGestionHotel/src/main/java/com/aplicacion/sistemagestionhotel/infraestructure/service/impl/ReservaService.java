@@ -1,12 +1,12 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.service.impl;
 
-import com.aplicacion.sistemagestionhotel.application.dto.ReservaClienteDTO;
 import com.aplicacion.sistemagestionhotel.domain.model.Cliente;
 import com.aplicacion.sistemagestionhotel.domain.model.Habitacion;
 import com.aplicacion.sistemagestionhotel.domain.model.Reserva;
 import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.ClienteEntity;
 import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.HabitacionEntity;
 import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.ReservaEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.ReservaRequest;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ClienteMapper;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.HabitacionMapper;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ReservaClienteMapper;
@@ -46,7 +46,7 @@ public class ReservaService implements IReservaService {
     }
 
     @Override
-    public Reserva save(ReservaClienteDTO dto) {
+    public Reserva save(ReservaRequest dto) {
         Cliente cliente = reservaClienteMapper.toCliente(dto);
         ClienteEntity entityCli = clienteMapper.toEntity(cliente);
         ClienteEntity savedCliente = clienteRepository.save(entityCli);

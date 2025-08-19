@@ -1,7 +1,10 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.controller;
 
-import com.aplicacion.sistemagestionhotel.application.dto.ReservaClienteDTO;
 import com.aplicacion.sistemagestionhotel.domain.model.Reserva;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.ReservaRequest;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.response.ReservaResponse;
+import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ReservaMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import com.aplicacion.sistemagestionhotel.application.Interfaces.IReservaService;
@@ -15,21 +18,23 @@ import java.util.Optional;
 public class ReservaController {
 
     private final IReservaService reservaService;
+    private final ReservaMapper reservaMapper;
 
     @GetMapping
-    public List<Reserva> findAll() {
-        return reservaService.findAll();
+    public List<ReservaResponse> findAll() {
+        return reservaMapper.toResponseList(reservaService.findAll());
     }
 
     @GetMapping("/{id}")
-    public Optional<Reserva> findById(@PathVariable Long id) {
-        return reservaService.findById(id);
+    public Optional<ReservaResponse> findById(@PathVariable Long id) {
+        return reservaService.findById(id)
+                .map(reservaMapper::toResponse);
     }
 
 
     @PostMapping("/save")
-    public Reserva save(@RequestBody ReservaClienteDTO dto) {
-        return reservaService.save(dto);
+    public ReservaResponse save(@RequestBody @Valid ReservaRequest dto) {
+        return reservaMapper.toResponse(reservaService.save(dto));
     }
 
     @DeleteMapping("/{id}")

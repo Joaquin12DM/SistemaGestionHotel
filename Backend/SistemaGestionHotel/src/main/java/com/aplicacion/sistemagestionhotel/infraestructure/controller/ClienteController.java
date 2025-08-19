@@ -2,6 +2,10 @@ package com.aplicacion.sistemagestionhotel.infraestructure.controller;
 
 import com.aplicacion.sistemagestionhotel.application.Interfaces.IClienteService;
 import com.aplicacion.sistemagestionhotel.domain.model.Cliente;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.ClienteRequest;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.response.ClienteResponse;
+import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ClienteMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,20 +18,23 @@ import java.util.Optional;
 public class ClienteController {
 
     private final IClienteService clienteService;
+    private final ClienteMapper clienteMapper;
 
     @GetMapping
-    public List<Cliente> findAll() {
-        return clienteService.findAll();
+    public List<ClienteResponse> findAll() {
+        return clienteMapper.toResponseList(clienteService.findAll());
     }
 
     @GetMapping("/{id}")
-    public Optional<Cliente> findById(@PathVariable Long id) {
-        return clienteService.findById(id);
+    public Optional<ClienteResponse> findById(@PathVariable Long id) {
+        return clienteService.findById(id)
+                .map(clienteMapper::toResponse);
     }
 
     @PostMapping("/save")
-    public Cliente save(@RequestBody Cliente cliente) {
-        return clienteService.save(cliente);
+    public ClienteResponse save(@RequestBody @Valid ClienteRequest clienteRequest) {
+        var cliente = clienteMapper.toDomain(clienteRequest);
+        return clienteMapper.toResponse(clienteService.save(cliente));
     }
 
     @DeleteMapping("/{id}")

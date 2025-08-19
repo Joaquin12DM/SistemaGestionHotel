@@ -1,10 +1,11 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.service.impl;
 
-import com.aplicacion.sistemagestionhotel.application.dto.ReservaClienteDTO;
+
 import com.aplicacion.sistemagestionhotel.domain.model.Cliente;
 import com.aplicacion.sistemagestionhotel.domain.model.Habitacion;
 import com.aplicacion.sistemagestionhotel.domain.model.Reserva;
 import com.aplicacion.sistemagestionhotel.application.Interfaces.IReservaConvertService;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.ReservaRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,7 +13,7 @@ public class ReservaConvertService implements IReservaConvertService {
 
 
     @Override
-    public Cliente toCliente(ReservaClienteDTO dto) {
+    public Cliente toCliente(ReservaRequest dto) {
         Cliente cliente = new Cliente();
         cliente.setNombre(dto.getNombre());
         cliente.setApellido(dto.getApellido());
@@ -23,7 +24,7 @@ public class ReservaConvertService implements IReservaConvertService {
     }
 
     @Override
-    public Reserva toReserva(ReservaClienteDTO dto, Cliente cliente, Habitacion habitacion) {
+    public Reserva toReserva(ReservaRequest dto, Cliente cliente, Habitacion habitacion) {
         Reserva reserva = new Reserva();
         reserva.setCliente(cliente);
         reserva.setHabitacion(habitacion);

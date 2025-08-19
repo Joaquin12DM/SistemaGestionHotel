@@ -1,6 +1,10 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.controller;
 
 import com.aplicacion.sistemagestionhotel.domain.model.Hotel;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.HotelRequest;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.response.HotelResponse;
+import com.aplicacion.sistemagestionhotel.infraestructure.mapper.HotelMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import com.aplicacion.sistemagestionhotel.application.Interfaces.IHotelService;
@@ -14,20 +18,23 @@ import java.util.Optional;
 public class HotelController {
 
     private final IHotelService hotelService;
+    private final HotelMapper hotelMapper;
 
     @GetMapping
-    public List<Hotel> findAll() {
-        return hotelService.findAll();
+    public List<HotelResponse> findAll() {
+        return hotelMapper.toResponseList(hotelService.findAll());
     }
 
     @GetMapping("/{id}")
-    public Optional<Hotel> findById(@PathVariable Long id) {
-        return hotelService.findById(id);
+    public Optional<HotelResponse> findById(@PathVariable Long id) {
+        return hotelService.findById(id)
+                .map(hotelMapper::toResponse);
     }
 
     @PostMapping("/save")
-    public Hotel save(@RequestBody Hotel hotel) {
-        return hotelService.save(hotel);
+    public HotelResponse save(@RequestBody @Valid HotelRequest hotelDTO) {
+        Hotel hotel = hotelMapper.toDomain(hotelDTO);
+        return hotelMapper.toResponse(hotelService.save(hotel));
     }
 
     @DeleteMapping("/{id}")

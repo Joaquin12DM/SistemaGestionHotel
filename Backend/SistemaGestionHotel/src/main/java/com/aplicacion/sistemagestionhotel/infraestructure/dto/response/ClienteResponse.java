@@ -1,27 +1,20 @@
-package com.aplicacion.sistemagestionhotel.application.dto;
+package com.aplicacion.sistemagestionhotel.infraestructure.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class ReservaClienteDTO {
+@NoArgsConstructor
+public class ClienteResponse {
 
+    private Long idCliente;
     private String nombre;
     private String apellido;
     private String dni;
     private String telefono;
     private String email;
-
-    private LocalDate fechaEntrada;
-    private LocalDate fechaSalida;
-    private String estado;
-
-    private Long idHabitacion;
 }
