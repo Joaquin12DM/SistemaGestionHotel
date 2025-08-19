@@ -21,7 +21,10 @@ export class HabitacionService {
   getHabitaciones(): Observable<Habitacion[]> {
     return this.http.get<Habitacion[]>(this.apiUrl);
   }
-
+  //metodo para capturar el id de la habitacion.
+  getById(id: number): Observable<Habitacion> {
+    return this.http.get<Habitacion>(`${this.apiUrl}/${id}`);
+  }
  
   
 }
