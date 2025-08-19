@@ -1,6 +1,5 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.controller;
 
-import com.aplicacion.sistemagestionhotel.domain.model.Habitacion;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.HabitacionRequest;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.response.HabitacionResponse;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.HabitacionMapper;

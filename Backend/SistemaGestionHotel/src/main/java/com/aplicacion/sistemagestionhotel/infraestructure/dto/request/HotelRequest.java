@@ -20,7 +20,7 @@ public class HotelRequest {
     private String direccion;
 
     @NotBlank(message = "El teléfono no puede estar vacío")
-    @Size(min = 9 , max = 9)
+    @Size(min = 9 , max = 9 , message = "El telefono debe tener 9 caracteres")
     @Pattern(regexp = "\\d", message = "El teléfono debe contener solo números")
     private String telefonoHotel;
 
