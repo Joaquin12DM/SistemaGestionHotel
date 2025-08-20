@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Habitacion, HabitacionService } from '../../../servicios/habitacion.service';
 import { CommonModule } from '@angular/common';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-habitaciones',
   templateUrl: './list_habitacion.html',
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class List_habitacion implements OnInit {
   habitaciones: Habitacion[] = [];
@@ -21,7 +21,7 @@ export class List_habitacion implements OnInit {
 obtenerHabitaciones(): void {
   this.habitacionService.getHabitaciones().subscribe({
     next: (data) => {
-      console.log('Datos recibidos:', data); // 🔹 debug
+      console.log('Datos recibidos:', data);
       this.habitaciones = data;
       this.cargando = false;
     },
