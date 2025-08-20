@@ -1,0 +1,46 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Body en columna con altura completa */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* app-root se adapta al alto restante */
+app-root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* main crece entre header y footer */
+main {
+  flex-grow: 1;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+/* Footer al final */
+footer {
+  background-color: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+}
