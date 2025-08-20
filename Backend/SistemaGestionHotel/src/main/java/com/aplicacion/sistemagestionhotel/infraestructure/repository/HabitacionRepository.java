@@ -16,4 +16,7 @@ public interface HabitacionRepository extends JpaRepository<HabitacionEntity, Lo
     @Query("SELECT h FROM HabitacionEntity h WHERE h.idHabitacion NOT IN (SELECT r.habitacion.idHabitacion FROM ReservaEntity r " +
             " WHERE :fecha BETWEEN r.fechaEntrada AND r.fechaSalida)")
     List<HabitacionEntity> findDisponiblesByFecha(@Param("fecha") LocalDate fecha);
+
+    @Query("SELECT h FROM HabitacionEntity h WHERE h.tipo = :tipo")
+    List<HabitacionEntity> findAllByTipo(@Param("tipo") String tipo);
 }

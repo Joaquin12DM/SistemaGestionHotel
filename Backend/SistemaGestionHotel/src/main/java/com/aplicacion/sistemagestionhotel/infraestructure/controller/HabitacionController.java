@@ -38,6 +38,11 @@ public class HabitacionController {
                 .map(habitacionMapper::toResponse);
     }
 
+    @GetMapping(params = "tipo")
+    public List<HabitacionResponse> findByTipo(@RequestParam String tipo) {
+        return habitacionMapper.toResponseList(habitacionService.findAllByTipo(tipo));
+    }
+
     @PostMapping("/save")
     public HabitacionResponse save(@RequestBody @Valid HabitacionRequest habitacionRequest) {
         var habitacion = habitacionMapper.toDomain(habitacionRequest);
