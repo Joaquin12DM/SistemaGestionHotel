@@ -85,10 +85,14 @@
       {{ h.capacidad }} | Capacidad {{ h.capacidad }}
     </p>
 
-    <a class="mt-2 w-fit cursor-pointer rounded-xl h-8 px-4 bg-[#1994e6] text-slate-50 text-sm font-medium flex items-center justify-center" 
-      routerLink="/fecha-reserva">
-        Separa tu Habitacion
-    </a>
+   <!--Envia el id de la habitacion a la pagina de /reservar-->
+    <button [routerLink]="['/reservar', h.idHabitacion]"
+        [queryParams]="{ fechaEntrada: fechaEntrada, fechaSalida: fechaSalida }"
+        class="mt-2 w-fit cursor-pointer rounded-xl h-8 px-4 bg-[#1994e6] text-slate-50 text-sm font-medium">
+  Separa tu habitación
+</button>
+
+
   </div>
 
 </div>

@@ -19,7 +19,8 @@ Este proyecto es una API REST desarrollada con Spring Boot para la gestión de h
 ### Habitación
 - `GET /habitacion` - Obtiene todas las habitaciones.
 - `GET /habitacion/{id}` - Obtiene una habitación por su ID.
-- `GET /habitacion/{fecha}` - Obtiene habitaciones que esten disponibles segun fecha.
+- `GET /habitacion/{tipo}` - Obtiene habitaciones por tipo.
+- `GET /habitacion/filter?fecha=YYYY-MM-DD` - Obtiene habitaciones disponibles según la fecha.
 - `POST /habitacion/save` - Crea o actualiza una habitación.
 - `DELETE /habitacion/{id}` - Elimina una habitación por su ID.
 
@@ -37,5 +38,3 @@ Este proyecto es una API REST desarrollada con Spring Boot para la gestión de h
 ```bash
 curl -X GET http://localhost:8082/cliente
 ```
-
-

@@ -28,7 +28,11 @@ export class HabitacionService {
     ); 
 }
 
-getById(id: number): Observable<Habitacion> {
+
+  //metodo para capturar el id de la habitacion.
+  getById(id: number): Observable<Habitacion> {
     return this.http.get<Habitacion>(`${this.apiUrl}/${id}`);
   }
+ 
+  
 }

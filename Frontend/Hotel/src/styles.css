@@ -1,7 +1,20 @@
+/* Import FontAwesome */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Variables globales */
+:root {
+  --brand-blue: #2563eb; /* Azul Tailwind  */
+  --text: #111827;
+  --muted: #6b7280;
+  --bg-input: #f9fafb;
+}
+
+/* Scroll oculto */
 html, body {
   overflow-y: scroll;
   scrollbar-width: none; 

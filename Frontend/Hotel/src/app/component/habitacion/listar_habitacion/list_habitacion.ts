@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-habitaciones',
   templateUrl: './list_habitacion.html',
   imports: [CommonModule, RouterModule, FormsModule]
+
 })
 export class List_habitacion implements OnInit {
   habitaciones: Habitacion[] = [];
@@ -16,10 +17,6 @@ export class List_habitacion implements OnInit {
   mostrarFiltros = false;
   fechaEntrada: string ="";
   fechaSalida: string="";
-
-
-
-
 
   constructor(private habitacionService: HabitacionService) {}
 

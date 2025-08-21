@@ -1,18 +1,17 @@
-package com.aplicacion.sistemagestionhotel.domain.model;
+package com.aplicacion.sistemagestionhotel.infraestructure.dto.response;
 
-import java.math.BigDecimal;
-
-import com.aplicacion.sistemagestionhotel.domain.enums.EstadoHabitacion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Habitacion {
+public class HabitacionResponse {
 
     private Long idHabitacion;
     private int numero;
@@ -22,4 +21,5 @@ public class Habitacion {
     private int capacidad;
     private String Descripcion;
     private String imagenUrl;
+
 }

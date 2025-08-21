@@ -13,7 +13,6 @@ import java.util.List;
 public interface HabitacionRepository extends JpaRepository<HabitacionEntity, Long> {
 
 
-
     @Query("SELECT h FROM HabitacionEntity h " +
             "WHERE h.idHabitacion NOT IN (" +
             "  SELECT r.habitacion.idHabitacion FROM ReservaEntity r " +
@@ -22,4 +21,6 @@ public interface HabitacionRepository extends JpaRepository<HabitacionEntity, Lo
     List<HabitacionEntity> findDisponiblesByFechas(@Param("fechaEntrada") LocalDate fechaEntrada,
                                                    @Param("fechaSalida") LocalDate fechaSalida);
 
+    @Query("SELECT h FROM HabitacionEntity h WHERE h.tipo = :tipo")
+    List<HabitacionEntity> findAllByTipo(@Param("tipo") String tipo);
 }

@@ -2,6 +2,7 @@ package com.aplicacion.sistemagestionhotel.infraestructure.service.impl;
 
 import com.aplicacion.sistemagestionhotel.domain.model.Hotel;
 import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.HotelEntity;
+import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.HotelRequest;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.HotelMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,9 +29,9 @@ public class HotelService implements IHotelService {
     }
 
     public Hotel save(Hotel hotel) {
-        HotelEntity entity = hotelMapper.toEntity(hotel);
-        HotelEntity save = hotelRepository.save(entity);
-        return hotelMapper.toDomain(save);
+        var hotelEntity = hotelMapper.toEntity(hotel);
+        var savedHotel = hotelRepository.save(hotelEntity);
+        return hotelMapper.toDomain(savedHotel);
     }
 
     public void deleteById(Long id) {
