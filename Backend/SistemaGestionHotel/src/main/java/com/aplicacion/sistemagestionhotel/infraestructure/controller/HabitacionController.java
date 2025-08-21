@@ -22,10 +22,13 @@ public class HabitacionController {
         return habitacionService.findAll();
     }
 
-    @GetMapping(params = "fecha",name = "/filter")
-    public List<Habitacion> findByFecha(@RequestParam("fecha")LocalDate fecha){
-        return habitacionService.findDisponiblesByFecha(fecha);
+    @GetMapping(value = "/filter", params = { "fechaEntrada", "fechaSalida" })
+    public List<Habitacion> findDisponiblesByFechas(
+            @RequestParam("fechaEntrada") LocalDate fechaEntrada,
+            @RequestParam("fechaSalida") LocalDate fechaSalida) {
+        return habitacionService.findDisponiblesByFechas(fechaEntrada, fechaSalida);
     }
+
 
 
     @GetMapping("/{id}")

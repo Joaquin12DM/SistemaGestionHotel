@@ -15,5 +15,5 @@ public interface IHabitacionService {
     Habitacion save(Habitacion habitacion);
     void deleteById(Long id);
 
-    List<Habitacion> findDisponiblesByFecha(LocalDate fecha);
+    List<Habitacion> findDisponiblesByFechas(LocalDate fechaEntrada, LocalDate fechaSalida);
 }

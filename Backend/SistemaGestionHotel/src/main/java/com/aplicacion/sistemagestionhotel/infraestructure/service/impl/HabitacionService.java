@@ -44,9 +44,10 @@ public class HabitacionService implements IHabitacionService {
     }
 
     @Override
-    public List<Habitacion> findDisponiblesByFecha(LocalDate fecha) {
-        List<HabitacionEntity> disponibles = habitacionRepository.findDisponiblesByFecha(fecha);
+    public List<Habitacion> findDisponiblesByFechas(LocalDate fechaEntrada, LocalDate fechaSalida) {
+        List<HabitacionEntity> disponibles = habitacionRepository.findDisponiblesByFechas(fechaEntrada, fechaSalida);
         return habitacionMapper.toDomainList(disponibles);
     }
+
 
 }
