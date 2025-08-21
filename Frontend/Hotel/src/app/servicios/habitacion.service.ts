@@ -22,6 +22,13 @@ export class HabitacionService {
     return this.http.get<Habitacion[]>(this.apiUrl);
   }
 
- 
-  
+  getDisponibles(fechaEntrada: string, fechaSalida: string): Observable<Habitacion[]> {
+    return this.http.get<Habitacion[]>(
+      `${this.apiUrl}/filter?fechaEntrada=${fechaEntrada}&fechaSalida=${fechaSalida}`
+    ); 
+}
+
+getById(id: number): Observable<Habitacion> {
+    return this.http.get<Habitacion>(`${this.apiUrl}/${id}`);
+  }
 }
