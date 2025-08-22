@@ -4,6 +4,7 @@ import { Home } from './component/home/home';
 import { ReservaHabitacion } from './component/habitacion/reserva-habitacion/reserva-habitacion';
 import { Login } from './component/login/login';
 import { Contact } from './component/contact/contact';
+import { About } from './component/about/about';
 
 export const routes: Routes = [
 
@@ -12,6 +13,7 @@ export const routes: Routes = [
     //nuevo:
     { path: 'reservar/:id', component: ReservaHabitacion},
     { path: 'login', component: Login},
-    { path: 'contacto', component: Contact}
+    { path: 'contacto', component: Contact},
+    { path: 'about', component:About }
     
 ];
