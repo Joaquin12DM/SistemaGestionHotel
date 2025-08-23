@@ -5,15 +5,19 @@ import { ReservaHabitacion } from './component/habitacion/reserva-habitacion/res
 import { Login } from './component/login/login';
 import { Contact } from './component/contact/contact';
 import { About } from './component/about/about';
+import { Privacy } from './component/layout/privacy/privacy';
+import { Terms } from './component/layout/terms/terms';
 
 export const routes: Routes = [
 
     {path: "", component: Home},
     {path: "habitaciones", component: List_habitacion},
-    //nuevo:
     { path: 'reservar/:id', component: ReservaHabitacion},
     { path: 'login', component: Login},
+    //nuevo:
     { path: 'contacto', component: Contact},
-    { path: 'about', component:About }
+    { path: 'about', component:About },
+    { path: 'privacy', component:Privacy},
+    { path: 'terms', component:Terms}
     
 ];
