@@ -1,0 +1,51 @@
+<!-- Contenedor principal -->
+<div class="px-40 flex flex-1 justify-center py-5">
+  <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+
+    <!-- Título y descripción -->
+    <div class="flex flex-wrap justify-between gap-3 p-4">
+      <div class="flex min-w-72 flex-col gap-3">
+        <p class="text-[#0e161b] tracking-light text-[32px] font-bold leading-tight">Habitaciones</p>
+        <p class="text-[#4e7a97] text-sm font-normal leading-normal">
+          Find your perfect retreat. Our rooms and suites offer a blend of comfort and elegance, designed to make your stay unforgettable.
+        </p>
+      </div>
+    </div>
+
+    <!-- Mensajes de carga o error -->
+    <div *ngIf="cargando">Cargando habitaciones...</div>
+    <div *ngIf="error">{{ error }}</div>
+
+    <!-- Título de la sección -->
+    <h3 class="text-[#0e161b] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Rooms</h3>
+
+    <!-- Aquí iteramos sobre las habitaciones usando *ngFor -->
+    <div *ngFor="let h of habitaciones" class="p-4 flex flex-col md:flex-row-reverse gap-4 border rounded-xl mb-4 items-center">
+
+  <!-- Imagen a la derecha, más grande -->
+  <div 
+    class="w-full md:w-1/2 h-48 md:h-48 bg-center bg-no-repeat bg-cover rounded-xl flex-shrink-0"
+    [style.background-image]="'url(' + h.imagenUrl + ')'"
+  ></div>
+
+  <!-- Detalles a la izquierda -->
+  <div class="flex flex-col justify-between w-full md:w-1/2 gap-2">
+    <p class="text-[#0e161b] text-lg font-bold leading-tight">{{ h.tipo }} - Habitación {{ h.numero }}</p>
+    <p class="text-[#4e7a97] text-base font-normal">
+      {{h.descripcion}}
+    </p>
+    <p class="text-[#4e7a97] text-base font-normal">
+      {{ h.capacidad }} | Sleeps {{ h.capacidad }}
+    </p>
+   <!--Envia el id de la habitacion a la pagina de /reservar-->
+    <button [routerLink]="['/reservar', h.idHabitacion]"
+      class="mt-2 w-fit cursor-pointer rounded-xl h-8 px-4 bg-[#1994e6] text-slate-50 text-sm font-medium"
+    >
+      View Room
+    </button>
+  </div>
+
+</div>
+
+  </div>
+</div>

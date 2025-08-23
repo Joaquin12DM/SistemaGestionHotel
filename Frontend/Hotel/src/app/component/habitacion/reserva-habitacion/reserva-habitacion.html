@@ -1,0 +1,153 @@
+<div class="relative flex min-h-screen flex-col bg-white overflow-x-hidden px-6 py-8">
+  <!-- Card centered -->
+  <div class="mx-auto w-full max-w-4xl">
+
+
+    <!-- Card principal -->
+    <div class="bg-white rounded-2xl shadow-sm border border-[#e6e9ec] overflow-hidden">
+      <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- Columna izquierda: galería + descripción -->
+        <div class="md:col-span-7 space-y-4">
+          <!-- Galería horizontal -->
+          <div class="flex gap-3 overflow-x-auto pb-2 -mx-2 px-2 [&::-webkit-scrollbar]:hidden">
+            <div class="flex-shrink-0 w-[220px] aspect-video rounded-xl bg-center bg-cover" style="background-image:url('{{ habitacion?.imagenUrl }}')"></div>
+            <!-- placeholders si hay más imágenes -->
+            <div class="flex-shrink-0 w-[220px] aspect-video rounded-xl bg-center bg-cover" style="background-image:url('https://via.placeholder.com/640x360')"></div>
+            <div class="flex-shrink-0 w-[220px] aspect-video rounded-xl bg-center bg-cover" style="background-image:url('https://via.placeholder.com/640x360')"></div>
+          </div>
+
+          <!-- Info habitación -->
+          <div>
+            <h2 class="text-2xl font-bold text-[var(--text)]"> Habitación {{ habitacion?.numero }}</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">
+               Precio por noche:
+              <span class="font-semibold text-[var(--text)]">{{ habitacion?.precioPorNoche | currency:'USD' }}</span>
+            </p>
+            <p class="mt-4 text-sm text-[var(--text)] leading-relaxed">
+              {{habitacion?.descripcion}}
+            </p>
+          </div>
+
+          <!-- Amenities -->
+          <h3 class="mt-4 text-lg font-bold text-[var(--text)]">Comodidades</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
+            <div class="flex items-center gap-3 rounded-lg border border-[#dce0e5] p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                  fill="currentColor" 
+                  viewBox="0 0 24 24" 
+                  class="w-6 h-6 text-[var(--text)]">
+                <path d="M4 6a2 2 0 0 0-2 2v10h2v-2h16v2h2V8a2 2 0 0 0-2-2H4zm0 2h16v4H4V8z"/>
+              </svg>
+              <div class="text-sm font-semibold text-[var(--text)]">
+                {{ habitacion?.tipo }}
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-lg border border-[#dce0e5] p-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>  
+              <div class="text-sm font-semibold text-[var(--text)]">{{ habitacion?.capacidad }} </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: formulario -->
+        <aside class="md:col-span-5">
+          <!-- mensajes -->
+          <div *ngIf="errorMsg" class="mb-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+            {{ errorMsg }}
+          </div>
+          <div *ngIf="successMsg" class="mb-3 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-green-700">
+            {{ successMsg }}
+          </div>
+
+          <!-- Formulario -->
+          <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()" class="space-y-4">
+            <div class="space-y-1">
+              <label class="text-sm font-medium text-[var(--text)]">Nombre*</label>
+              <input formControlName="nombre" type="text"
+                class="w-full rounded-xl h-12 p-3 bg-[var(--bg-input)] placeholder:text-[var(--muted)] text-[var(--text)] border-none focus:ring-0" />
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-sm font-medium text-[var(--text)]">Apellido*</label>
+              <input formControlName="apellido" type="text"
+                class="w-full rounded-xl h-12 p-3 bg-[var(--bg-input)] placeholder:text-[var(--muted)] text-[var(--text)] border-none focus:ring-0" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="text-sm font-medium text-[var(--text)]">DNI*</label>
+                <input formControlName="dni" type="text"
+                  class="w-full rounded-xl h-12 p-3 bg-[var(--bg-input)] placeholder:text-[var(--muted)] text-[var(--text)] border-none focus:ring-0" />
+              </div>
+              <div>
+                <label class="text-sm font-medium text-[var(--text)]">Teléfono</label>
+                <input formControlName="telefono" type="text"
+                  class="w-full rounded-xl h-12 p-3 bg-[var(--bg-input)] placeholder:text-[var(--muted)] text-[var(--text)] border-none focus:ring-0" />
+              </div>
+            </div>
+
+            <div>
+              <label class="text-sm font-medium text-[var(--text)]">Email</label>
+              <input formControlName="email" type="email"
+                class="w-full rounded-xl h-12 p-3 bg-[var(--bg-input)] placeholder:text-[var(--muted)] text-[var(--text)] border-none focus:ring-0" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="text-sm font-medium text-[var(--text)]">Fecha Entrada*</label>
+                <input formControlName="fechaEntrada" type="date"
+                  class="w-full rounded-xl h-12 p-3 bg-[var(--bg-input)] text-[var(--text)] border-none focus:ring-0" />
+              </div>
+              <div>
+                <label class="text-sm font-medium text-[var(--text)]">Fecha Salida*</label>
+                <input formControlName="fechaSalida" type="date"
+                  class="w-full rounded-xl h-12 p-3 bg-[var(--bg-input)] text-[var(--text)] border-none focus:ring-0" />
+              </div>
+            </div>
+
+            <!-- número de noches y total -->
+            <div class="rounded-lg border border-[#dce0e5] bg-white p-4 text-sm text-[var(--text)]">
+              <div class="flex justify-between"><span class="text-[var(--muted)]">Noches:</span><span class="font-semibold">{{ noches }}</span></div>
+              <div class="flex justify-between mt-1"><span class="text-[var(--muted)]">Total:</span><span class="font-semibold">{{ total | currency:'USD' }}</span></div>
+            </div>
+
+            <button type="submit" [disabled]="saving"
+              class="w-full rounded-xl h-12 px-4 text-white font-bold text-base"
+              [ngClass]="{ 'bg-[var(--brand-blue)] opacity-60 cursor-not-allowed': saving, 'bg-[var(--brand-blue)]': !saving }">
+              Reservar
+            </button>
+          </form>
+        </aside>
+      </div>
+
+      <!-- Footer resumen reserva -->
+      <div class="border-t border-[#f0f2f4] p-6">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="md:col-span-1 text-[var(--muted)]">Selected Dates</div>
+          <div class="md:col-span-2 text-[var(--text)]"> {{ reservaForm.value.fechaEntrada || '—' }} - {{ reservaForm.value.fechaSalida || '—' }} </div>
+
+          <div class="md:col-span-1 text-[var(--muted)]">Number of Nights</div>
+          <div class="md:col-span-2 text-[var(--text)]">{{ noches }} nights</div>
+
+          <div class="md:col-span-1 text-[var(--muted)]">Total Cost</div>
+          <div class="md:col-span-2 text-[var(--text)]">{{ total | currency:'USD' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Confirmación de Pago -->
+  <div *ngIf="showPagoPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+    <div class="w-full max-w-md bg-white rounded-2xl p-6 shadow-lg">
+      <h4 class="text-lg font-bold text-[var(--text)]">Confirmar Reserva</h4>
+      <p class="mt-2 text-sm text-[var(--muted)]">¿Deseas confirmar el pago de <strong class="text-[var(--text)]">{{ total | currency:'USD' }}</strong>?</p>
+      <div class="mt-4 flex gap-3">
+        <button class="flex-1 rounded-xl h-11 font-semibold bg-green-600 text-white" (click)="confirmarPago()" [disabled]="saving">Sí, Confirmar</button>
+        <button class="flex-1 rounded-xl h-11 font-semibold border border-[#dce0e5] text-[var(--text)] bg-white" (click)="cancelarPago()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

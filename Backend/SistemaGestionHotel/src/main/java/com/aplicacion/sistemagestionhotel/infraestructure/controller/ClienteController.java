@@ -1,7 +1,6 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.controller;
 
 import com.aplicacion.sistemagestionhotel.application.Interfaces.IClienteService;
-import com.aplicacion.sistemagestionhotel.domain.model.Cliente;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.ClienteRequest;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.response.ClienteResponse;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ClienteMapper;

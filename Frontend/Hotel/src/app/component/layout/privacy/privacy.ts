@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-privacy',
   imports: [],
   templateUrl: './privacy.html',
-  styleUrl: './privacy.css'
 })
 export class Privacy {
 

@@ -1,6 +1,5 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.controller;
 
-import com.aplicacion.sistemagestionhotel.domain.model.Reserva;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.request.ReservaRequest;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.response.ReservaResponse;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ReservaMapper;

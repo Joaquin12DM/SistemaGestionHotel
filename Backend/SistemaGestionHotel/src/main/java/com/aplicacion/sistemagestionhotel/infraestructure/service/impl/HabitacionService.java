@@ -44,6 +44,11 @@ public class HabitacionService implements IHabitacionService {
     }
 
     @Override
+    public List<Habitacion> findAllByTipo(String tipo) {
+        return habitacionMapper.toDomainList(habitacionRepository.findAllByTipo(tipo));
+    }
+
+    @Override
     public List<Habitacion> findDisponiblesByFecha(LocalDate fecha) {
         List<HabitacionEntity> disponibles = habitacionRepository.findDisponiblesByFecha(fecha);
         return habitacionMapper.toDomainList(disponibles);
