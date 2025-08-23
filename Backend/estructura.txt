@@ -1,0 +1,112 @@
+Listado de rutas de carpetas
+El número de serie del volumen es 96E3-9FB0
+C:\USERS\USER\DESKTOP\NUEVA CARPETA\SISTEMAGESTIONHOTEL-MAIN\BACKEND
+|   estructura.txt
+|   Springboot.txt
+|   
+\---SistemaGestionHotel
+    |   .gitattributes
+    |   .gitignore
+    |   mvnw
+    |   mvnw.cmd
+    |   pom.xml
+    |   README.md
+    |   
+    +---.mvn
+    |   \---wrapper
+    |           maven-wrapper.properties
+    |           
+    \---src
+        +---main
+        |   +---java
+        |   |   \---com
+        |   |       \---aplicacion
+        |   |           \---sistemagestionhotel
+        |   |               |   SistemaGestionHotelApplication.java
+        |   |               |   
+        |   |               +---application
+        |   |               |   \---Interfaces
+        |   |               |           IClienteService.java
+        |   |               |           IHabitacionService.java
+        |   |               |           IHotelService.java
+        |   |               |           IReservaConvertService.java
+        |   |               |           IReservaService.java
+        |   |               |           
+        |   |               +---domain
+        |   |               |   +---enums
+        |   |               |   |       EstadoHabitacion.java
+        |   |               |   |       
+        |   |               |   +---exception
+        |   |               |   |       ReservaNotFoundException.java
+        |   |               |   |       
+        |   |               |   \---model
+        |   |               |           Cliente.java
+        |   |               |           ErrorResponse.java
+        |   |               |           Habitacion.java
+        |   |               |           Hotel.java
+        |   |               |           Reserva.java
+        |   |               |           
+        |   |               +---infraestructure
+        |   |               |   +---controller
+        |   |               |   |       ClienteController.java
+        |   |               |   |       HabitacionController.java
+        |   |               |   |       HotelController.java
+        |   |               |   |       ReservaController.java
+        |   |               |   |       
+        |   |               |   +---dto
+        |   |               |   |   +---request
+        |   |               |   |   |       ClienteRequest.java
+        |   |               |   |   |       HabitacionRequest.java
+        |   |               |   |   |       HotelRequest.java
+        |   |               |   |   |       ReservaRequest.java
+        |   |               |   |   |       
+        |   |               |   |   \---response
+        |   |               |   |           ClienteResponse.java
+        |   |               |   |           HabitacionResponse.java
+        |   |               |   |           HotelResponse.java
+        |   |               |   |           ReservaResponse.java
+        |   |               |   |           
+        |   |               |   +---exception
+        |   |               |   |       GlobalExceptionHandler.java
+        |   |               |   |       
+        |   |               |   +---mapper
+        |   |               |   |       ClienteMapper.java
+        |   |               |   |       HabitacionMapper.java
+        |   |               |   |       HotelMapper.java
+        |   |               |   |       ReservaClienteMapper.java
+        |   |               |   |       ReservaMapper.java
+        |   |               |   |       
+        |   |               |   +---Persitence
+        |   |               |   |   \---entities
+        |   |               |   |           ClienteEntity.java
+        |   |               |   |           HabitacionEntity.java
+        |   |               |   |           HotelEntity.java
+        |   |               |   |           ReservaEntity.java
+        |   |               |   |           
+        |   |               |   +---repository
+        |   |               |   |       ClienteRepository.java
+        |   |               |   |       HabitacionRepository.java
+        |   |               |   |       HotelRepository.java
+        |   |               |   |       ReservaRepository.java
+        |   |               |   |       
+        |   |               |   \---service
+        |   |               |       \---impl
+        |   |               |               ClienteService.java
+        |   |               |               HabitacionService.java
+        |   |               |               HotelService.java
+        |   |               |               ReservaConvertService.java
+        |   |               |               ReservaService.java
+        |   |               |               
+        |   |               \---utils
+        |   |                       ErrorCatalog.java
+        |   |                       
+        |   \---resources
+        |           application.properties
+        |           
+        \---test
+            \---java
+                \---com
+                    \---aplicacion
+                        \---sistemagestionhotel
+                                SistemaGestionHotelApplicationTests.java
+                                
