@@ -1,5 +1,6 @@
 package com.aplicacion.sistemagestionhotel.infraestructure.dto.response;
 
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +13,15 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ReservaResponse {
 
-    private Long idReserva;
+
+    private String nombre;
+    private String apellido;
+    private String dni;
+    private String telefono;
+    private String email;
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
     private String estado;
+    private Long idHabitacion;
 
 }

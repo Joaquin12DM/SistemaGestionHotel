@@ -1,0 +1,161 @@
+[33mcommit a65d3552253a9ad87aee273e50d7a9c281164684[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Sat Aug 23 00:19:10 2025 -0500
+
+    Frontend changes
+
+[33mcommit 8de43855592d7846ddf7ce1aafe4125c2b48c072[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Sat Aug 23 00:18:49 2025 -0500
+
+    Mejora de mensaje de error
+
+[33mcommit 7a23b0674887c375832da68eb110a1b5ea1adc25[m
+Merge: 621d636 1008ace
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Sat Aug 23 00:15:35 2025 -0500
+
+    Mejora de mensaje de error
+
+[33mcommit 621d636d1aab3b9073278a1baf128e63ebdb12d2[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Fri Aug 22 22:59:02 2025 -0500
+
+    Mejora de mensaje de error
+
+[33mcommit 1008aceca1c430020832aed1672e3650ef446425[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 73db96c 0cd298f
+Author: Joaquin Gabriel <joaquindm1226@gmail.com>
+Date:   Fri Aug 22 22:56:14 2025 -0500
+
+    Merge pull request #2 from Joaquin12DM/juanbry
+    
+    Juanbry
+
+[33mcommit 0cd298fac9d27793ea116cdc5e02b98a7640e4c8[m[33m ([m[1;31morigin/juanbry[m[33m)[m
+Merge: 27a7ba1 73db96c
+Author: Joaquin Gabriel <joaquindm1226@gmail.com>
+Date:   Fri Aug 22 22:56:02 2025 -0500
+
+    Merge branch 'main' into juanbry
+
+[33mcommit 73db96c15ac61a996a048a7da4d2719c6648eda9[m
+Author: Jefferson Quiroz <jeffersonquirozrodriguez@gmail.com>
+Date:   Fri Aug 22 19:03:28 2025 -0500
+
+    Ultimas paginas del Footer agregados
+
+[33mcommit aa16eef36e0ed7ae18a221dd142f5b561a04a78f[m
+Author: Jefferson Quiroz <jeffersonquirozrodriguez@gmail.com>
+Date:   Fri Aug 22 18:46:19 2025 -0500
+
+    Vista About agregado
+
+[33mcommit 94ff8e05697e671dbaabd797777468d4ad7ca13c[m
+Author: Jefferson Quiroz <jeffersonquirozrodriguez@gmail.com>
+Date:   Fri Aug 22 18:04:47 2025 -0500
+
+    Vista de Contacto agregado
+
+[33mcommit 46dc4e55a730414bff89708295e0561d208f1b3b[m
+Author: Jefferson Quiroz <jeffersonquirozrodriguez@gmail.com>
+Date:   Thu Aug 21 21:18:38 2025 -0500
+
+    Carpeta antigua eliminada
+
+[33mcommit fd11140936d4d265b74daaf6405341c160028e8a[m
+Author: Jefferson Quiroz <jeffersonquirozrodriguez@gmail.com>
+Date:   Thu Aug 21 21:08:16 2025 -0500
+
+    Actualización de frontend desde rama jefferson_quiroz
+
+[33mcommit 4807b059075bd6a45306b7dd84f47983a5309101[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Wed Aug 20 03:16:28 2025 -0500
+
+    Arreglando bug del merge
+
+[33mcommit 27a7ba14cd87c83eccf889c4169cd22fe3aa6cb3[m
+Merge: c097682 b34bd90
+Author: Juan <marcoreus24102001@gmail.com>
+Date:   Tue Aug 19 23:33:18 2025 -0500
+
+    Merge branch 'juanbry' of https://github.com/Joaquin12DM/SistemaGestionHotel into juanbry
+
+[33mcommit c097682332b1b8eb53600d9b262c78df8c00bfac[m
+Author: Juan <marcoreus24102001@gmail.com>
+Date:   Tue Aug 19 23:23:22 2025 -0500
+
+    security commit
+
+[33mcommit b34bd9092f0dfc47f7c1118a78131905618126bc[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Tue Aug 19 00:24:38 2025 -0500
+
+    Mejora de mensaje de error
+
+[33mcommit 16c69b2507ee133488826cc3b56b0b5300642db1[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Tue Aug 19 00:05:07 2025 -0500
+
+    Mejora de responsabilidades en capas
+
+[33mcommit 7129a61d806c5177d5f2b8765fbfdce55461e57c[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Sun Aug 17 20:14:04 2025 -0500
+
+    Agregando CrossOrigin en Habitacion
+
+[33mcommit 306d71882832230d33d49d994bc49dd20ccc41dd[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Thu Aug 14 06:21:38 2025 -0500
+
+    update readme
+
+[33mcommit 55b92fb9362e7e0e1e3af0ee6d5d58a22166e879[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Thu Aug 14 06:13:12 2025 -0500
+
+    Arquitectura N-Capas
+
+[33mcommit b3b67cf6ab24f93e375cdf03b005b60ecebb3339[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Wed Aug 13 01:47:16 2025 -0500
+
+    endpoints agregados
+
+[33mcommit 4decdd8a05f9cd1104a73cb4b852934a1610d8fc[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Tue Aug 12 21:17:46 2025 -0500
+
+    Servicios iniciales implementados
+
+[33mcommit d79eabfc760b0c43dd7d4d3dfb4c9e081525cbd0[m
+Author: Guillermo-TR <g2145258@gmail.com>
+Date:   Sat Aug 9 19:40:42 2025 -0500
+
+    Agregando Entidades
+
+[33mcommit a83d1c7e1f9120ae08d400dac9d90319bf92800d[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Sat Aug 9 18:24:36 2025 -0500
+
+    agregado carpetas
+
+[33mcommit ac9c32756c5d9f0803b72b8020deca002f9519b1[m
+Author: Francisco <davilamaldonadofrancisco15@gmail.com>
+Date:   Tue Jul 29 22:36:08 2025 -0500
+
+    Plantilla
+
+[33mcommit f3a3eebefc4faed3474961634bcb845630bd3067[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Tue Jul 29 00:38:58 2025 -0500
+
+    add backend-project
+
+[33mcommit 4c6119aed367283f4e96cf8f1fd51ba9a3cbb110[m
+Author: Joaquin12DM <joaquindm1226@gmail.com>
+Date:   Tue Jul 29 00:31:37 2025 -0500
+
+    first commit

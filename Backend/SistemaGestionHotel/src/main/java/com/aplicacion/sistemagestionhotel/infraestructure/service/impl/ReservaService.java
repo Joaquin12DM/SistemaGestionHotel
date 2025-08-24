@@ -47,16 +47,23 @@ public class ReservaService implements IReservaService {
 
     @Override
     public Reserva save(ReservaRequest dto) {
-        Cliente cliente = reservaClienteMapper.toCliente(dto);
-        ClienteEntity entityCli = clienteMapper.toEntity(cliente);
-        ClienteEntity savedCliente = clienteRepository.save(entityCli);
-        Cliente saveCli = clienteMapper.toDomain(savedCliente);
+        Cliente saveCli;
+        Optional<ClienteEntity> clienteExistente = clienteRepository.findByDni(dto.getDni());
+
+        if (clienteExistente.isPresent()) {
+            saveCli = clienteMapper.toDomain(clienteExistente.get());
+        } else {
+            Cliente cliente = reservaClienteMapper.toCliente(dto);
+            ClienteEntity entityCli = clienteMapper.toEntity(cliente);
+            ClienteEntity savedCliente = clienteRepository.save(entityCli);
+            saveCli = clienteMapper.toDomain(savedCliente);
+        }
 
         HabitacionEntity entityHab = habitacionRepository.findById(dto.getIdHabitacion())
                 .orElseThrow(() -> new RuntimeException("Habitación no encontrada"));
 
         Habitacion habitacion = habitacionMapper.toDomain(entityHab);
-        ReservaEntity entityRe = reservaClienteMapper.toReserva(dto,saveCli,habitacion);
+        ReservaEntity entityRe = reservaClienteMapper.toReserva(dto, saveCli, habitacion);
 
         ReservaEntity save = reservaRepository.save(entityRe);
 

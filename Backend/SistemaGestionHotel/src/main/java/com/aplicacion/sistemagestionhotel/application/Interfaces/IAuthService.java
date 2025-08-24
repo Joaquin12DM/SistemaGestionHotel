@@ -3,6 +3,8 @@ package com.aplicacion.sistemagestionhotel.application.Interfaces;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.auth.AuthResponse;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.auth.LoginRequest;
 import com.aplicacion.sistemagestionhotel.infraestructure.dto.auth.RegisterRequest;
+import org.springframework.stereotype.Service;
+
 
 public interface IAuthService {
 
