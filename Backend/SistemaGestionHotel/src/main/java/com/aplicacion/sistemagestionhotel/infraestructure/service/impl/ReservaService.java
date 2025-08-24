@@ -71,6 +71,16 @@ public class ReservaService implements IReservaService {
     }
 
     @Override
+    public Long obtenerNumeroReservasPorMes(int mes, int anio) {
+        return reservaRepository.obtenerNumeroReservasPorMes(mes, anio);
+    }
+
+    @Override
+    public Double obtenerSumaMontoPorMes(int mes, int anio) {
+        return reservaRepository.obtenerSumaMontoPorMes(mes,anio);
+    }
+
+    @Override
     public void deleteById(Long id) {
         reservaRepository.deleteById(id);
     }

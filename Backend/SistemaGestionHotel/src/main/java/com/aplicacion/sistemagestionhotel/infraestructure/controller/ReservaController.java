@@ -42,4 +42,17 @@ public class ReservaController {
     }
 
 
+    @GetMapping("/reservas-por-mes")
+    public Long obtenerNumeroReservasPorMes(
+            @RequestParam(name = "mes") int mes,
+            @RequestParam(name = "anio") int anio) {
+        return reservaService.obtenerNumeroReservasPorMes(mes, anio);
+    }
+
+    @GetMapping("/suma-monto-por-mes")
+    public Double obtenerSumaMontoPorMes(
+            @RequestParam(name = "mes") int mes,
+            @RequestParam(name = "anio") int anio) {
+        return reservaService.obtenerSumaMontoPorMes(mes, anio);
+    }
 }
