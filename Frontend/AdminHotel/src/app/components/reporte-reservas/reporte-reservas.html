@@ -1,0 +1,138 @@
+<div class="reporte-reservas">
+  <header class="top">
+    <div>
+      <h1>Reporte de Reservas</h1>
+      <p class="subtitle">Analiza número de reservas y montos por mes</p>
+    </div>
+
+    <form class="controls" (ngSubmit)="consultarReporte()" #f="ngForm">
+      <label class="select-label">
+        Mes
+        <select [(ngModel)]="mes" name="mes" required>
+          <option *ngFor="let m of [
+            {num:1, nombre:'Enero'},
+            {num:2, nombre:'Febrero'},
+            {num:3, nombre:'Marzo'},
+            {num:4, nombre:'Abril'},
+            {num:5, nombre:'Mayo'},
+            {num:6, nombre:'Junio'},
+            {num:7, nombre:'Julio'},
+            {num:8, nombre:'Agosto'},
+            {num:9, nombre:'Septiembre'},
+            {num:10, nombre:'Octubre'},
+            {num:11, nombre:'Noviembre'},
+            {num:12, nombre:'Diciembre'}
+          ]" [value]="m.num">
+            {{ m.nombre }}
+          </option>
+        </select>
+      </label>
+
+      <label class="select-label">
+        Año
+        <select [(ngModel)]="anio" name="anio" required>
+        <option *ngFor="let a of anios" [value]="a">{{ a }}</option>
+        </select>
+      </label>
+
+      <button type="submit" class="btn" [disabled]="loading || !f.valid">
+        <span *ngIf="!loading">Consultar</span>
+        <span *ngIf="loading" class="btn-loading">
+          <span class="spinner" aria-hidden="true"></span> Cargando...
+        </span>
+      </button>
+    </form>
+  </header>
+
+  <main>
+    <section class="cards">
+      <!-- Reservas -->
+      <article class="card">
+        <div class="card-head">
+          <div class="icon">📅</div>
+          <div class="title">Reservas</div>
+        </div>
+        <div class="card-body">
+          <div class="value">{{ numeroReservas ?? '—' }}</div>
+          <div class="muted">
+            Previas: <strong *ngIf="reservasPrevias!==null">{{ reservasPrevias }}</strong>
+            <span *ngIf="reservasPrevias===null">—</span>
+          </div>
+
+          <div *ngIf="variacionReservas !== null" class="variation" [ngClass]="{'positive': variacionReservas >= 0, 'negative': variacionReservas < 0}">
+            <span class="arrow">{{ variacionReservas >= 0 ? '▲' : '▼' }}</span>
+            {{ variacionReservas | number:'1.0-1' }}%
+          </div>
+        </div>
+      </article>
+
+      <!-- Monto -->
+      <article class="card">
+        <div class="card-head">
+          <div class="icon">💲</div>
+          <div class="title">Monto Total</div>
+        </div>
+        <div class="card-body">
+          <div class="value">{{ sumaMonto !== null ? (sumaMonto | currency:'USD') : '—' }}</div>
+          <div class="muted">
+            Previos: <strong *ngIf="montoPrevio!==null">{{ montoPrevio | currency:'USD' }}</strong>
+            <span *ngIf="montoPrevio===null">—</span>
+          </div>
+
+          <div *ngIf="variacionMonto !== null" class="variation" [ngClass]="{'positive': variacionMonto >= 0, 'negative': variacionMonto < 0}">
+            <span class="arrow">{{ variacionMonto >= 0 ? '▲' : '▼' }}</span>
+            {{ variacionMonto | number:'1.0-1' }}%
+          </div>
+        </div>
+      </article>
+
+      <!-- Promedio -->
+      <article class="card emphasize">
+        <div class="card-head">
+          <div class="icon">⚖️</div>
+          <div class="title">Promedio por Reserva</div>
+        </div>
+        <div class="card-body">
+          <div class="value">
+            {{ promedioPorReserva !== null ? (promedioPorReserva | currency:'USD') : '—' }}
+          </div>
+          <div class="muted">Calculado localmente</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="detail">
+      <div class="panel">
+        <h3>Resumen</h3>
+        <p *ngIf="numeroReservas !== null || sumaMonto !== null">
+          En <strong>{{ mes }}/{{ anio }}</strong> se registraron
+          <strong>{{ numeroReservas ?? 0 }}</strong> reservas por un total de
+          <strong>{{ sumaMonto !== null ? (sumaMonto | currency:'USD') : (0 | currency:'USD') }}</strong>.
+        </p>
+
+        <p *ngIf="!numeroReservas && !sumaMonto">No hay datos para el mes seleccionado.</p>
+
+        <div class="actions">
+          <button class="btn ghost" type="button" (click)="numeroReservas=null; sumaMonto=null; promedioPorReserva=null">Limpiar</button>
+        </div>
+      </div>
+
+      <aside class="panel small">
+        <h4>Estado</h4>
+        <div *ngIf="errorMsg" class="alert error-box">{{ errorMsg }}</div>
+        <div *ngIf="!errorMsg && !loading" class="ok-box">
+          Última consulta:
+          <small>{{ reservasPrevias !== null ? 'Datos previos actualizados' : 'Sin consultas previas' }}</small>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- overlay de carga (opcional) -->
+  <div class="overlay" *ngIf="loading" aria-hidden="true">
+    <div class="overlay-card">
+      <span class="spinner large"></span>
+      <p>Cargando reporte…</p>
+    </div>
+  </div>
+</div>

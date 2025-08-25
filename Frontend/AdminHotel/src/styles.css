@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; background: #f5f7fb; }
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ocupa toda la pantalla */
+}
+
+.main-content {
+  flex: 1; /* ocupa el espacio restante y empuja el footer abajo */
+  display: flex;
+  flex-direction: column;
+}
+/* si en algún lado tienes un “container” global con max-width, desactívalo: */
+.container, .page, .app-content { max-width: none !important; width: 100% !important; margin: 0 !important; }

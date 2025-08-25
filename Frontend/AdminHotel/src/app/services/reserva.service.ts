@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Reserva } from '../models/reserva.model';
+import { ReservaCliente } from '../models/Reserva-Cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,10 @@ export class ReservaService {
     return this.http.get<Reserva>(`${this.apiUrl}/${id}`);
   }
 
-  createReserva(reserva: Reserva): Observable<Reserva> {
-    return this.http.post<Reserva>(this.apiUrl, reserva);
+  createReserva(reserva: ReservaCliente): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/save`, reserva);
   }
+
 
   updateReserva(id: number, reserva: Reserva): Observable<Reserva> {
     return this.http.put<Reserva>(`${this.apiUrl}/${id}`, reserva);

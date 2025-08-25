@@ -1,0 +1,36 @@
+<header class="app-header">
+  <div class="header-left">
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú">
+      <span [class.open]="menuOpen">☰</span>
+    </button>
+
+    <a class="brand" routerLink="/dashboard">
+
+      <div class="brand-text">
+        <span class="title">Hotel Dusk</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- nav principal-->
+  <nav class="main-nav">
+    <a *ngFor="let it of menuItems" routerLink="{{it.link}}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      {{ it.label }}
+    </a>
+  </nav>
+
+  <div class="header-right">
+    <div *ngIf="currentUser; else guest" class="user-block">
+      <span class="greet">Hola, <strong>{{ currentUser.username ?? currentUser.name ?? 'Usuario' }}</strong></span>
+      <button class="btn-logout" (click)="onLogout()">Cerrar sesión</button>
+    </div>
+    <ng-template #guest>
+      <a routerLink="/login" class="login-link">Cerrar sesión</a>
+    </ng-template>
+  </div>
+
+  <!-- menú desplegable-->
+  <div class="mobile-nav" [class.open]="menuOpen" (clickOutside)="menuOpen=false" *ngIf="menuOpen || false">
+    <a *ngFor="let it of menuItems" (click)="menuOpen=false" routerLink="{{it.link}}" routerLinkActive="active">{{ it.label }}</a>
+  </div>
+</header>

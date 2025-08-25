@@ -1,1 +1,13 @@
-﻿<router-outlet></router-outlet>
+﻿<div class="app-container">
+  <app-header 
+    *ngIf="!isLoginRoute()" 
+
+    (logout)="onLogout()">
+  </app-header>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer *ngIf="!isLoginRoute()"></app-footer>
+</div>

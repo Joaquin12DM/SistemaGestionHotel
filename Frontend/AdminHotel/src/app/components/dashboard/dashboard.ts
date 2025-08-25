@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     this.cargandoReservas = true;
     this.reservaService.getReservas().subscribe({
       next: (data) => {
-        this.reservas = data;
+        this.reservas = (data || []).slice().reverse();
         this.cargandoReservas = false;
       },
       error: (error) => {
@@ -46,6 +46,6 @@ export class DashboardComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    window.location.href = '/login'; // Redirigir al login
+    window.location.href = '/login'; 
   }
 }

@@ -1,0 +1,84 @@
+<!-- src/app/components/habitaciones/habitaciones.html -->
+<div class="habitaciones-container">
+  <header class="page-header">
+    <h2>Habitaciones</h2>
+    <div class="actions">
+      <button (click)="toggleMostrarTodas()">
+        {{ mostrarTodas ? 'Mostrar disponibles hoy' : 'Mostrar todas las habitaciones' }}
+      </button>
+      <button (click)="loadData()">Actualizar</button>
+    </div>
+  </header>
+
+  <section class="stats-cards">
+    <div class="stat-card">
+      <h4>Total</h4>
+      <p class="stat-number">{{ total }}</p>
+    </div>
+    <div class="stat-card">
+      <h4>Disponibles hoy</h4>
+      <p class="stat-number">{{ disponiblesCount }}</p>
+    </div>
+    <div class="stat-card">
+      <h4>Ocupadas hoy</h4>
+      <p class="stat-number">{{ ocupadasCount }}</p>
+    </div>
+  </section>
+<!-- Por tipo -->
+    <section class="by-type">
+    <h4>Por tipo</h4>
+    <div class="type-list">
+        <div *ngFor="let tipo of porTipo | keyvalue">
+        <strong>{{ tipo.key }}</strong>
+        <span> Total: {{ tipo.value.total }}</span>
+        <span> - Disponibles: {{ tipo.value.disponibles }}</span>
+        </div>
+    </div>
+    </section>
+
+  <section class="table-section">
+    <div *ngIf="cargando" class="loading">Cargando habitaciones...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <table *ngIf="!cargando && !error" class="rooms-table">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Número</th>
+          <th>Tipo</th>
+          <th>Precio</th>
+          <th>Capacidad</th>
+          <th>Estado</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="habitaciones.length === 0">
+          <td colspan="8" class="no-data">No hay habitaciones para mostrar</td>
+        </tr>
+        <tr *ngFor="let h of habitaciones">
+          <td>
+            <img *ngIf="h.imagenUrl" [src]="h.imagenUrl" class="thumb" alt="img"/>
+          </td>
+          <td>{{ h.numero }}</td>
+          <td>{{ h.tipo }}</td>
+          <td>{{ h.precioPorNoche | currency:'USD' }}</td>
+          <td>{{ h.capacidad }}</td>
+          <td>
+            <span [ngClass]="{
+              'badge-available': estadoDe(h) === 'Disponible',
+              'badge-occupied': estadoDe(h) === 'Ocupada',
+              'badge-maint': estadoDe(h) === 'Mantenimiento'
+            }">{{ estadoDe(h) }}</span>
+          </td>
+          <td>{{ h.descripcion }}</td>
+        <td>
+        <button (click)="editHabitacion(h)">Editar</button>
+        <button (click)="deleteHabitacion(h)" class="danger">Eliminar</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

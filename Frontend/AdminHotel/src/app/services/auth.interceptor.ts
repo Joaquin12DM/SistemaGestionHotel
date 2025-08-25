@@ -8,7 +8,7 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   const token = tokenService.getToken();
   
   if (token) {
-    // Clonar la solicitud y agregar el encabezado de autorización
+   
     const authReq = request.clone({
       headers: request.headers.set('Authorization', `Bearer ${token}`)
     });

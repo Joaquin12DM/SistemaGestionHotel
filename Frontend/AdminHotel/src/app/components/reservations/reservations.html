@@ -1,0 +1,87 @@
+<div class="crear-reserva">
+  <h2>Registrar reserva (Recepción)</h2>
+
+  <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+    <div class="grid">
+      <div>
+        <label>Nº Habitación</label>
+
+        <!-- SELECT ligado a idHabitacion: valor = id (lo que enviamos al backend) -->
+        <select formControlName="idHabitacion">
+          <option [ngValue]="null">-- Selecciona habitación disponible (hoy) --</option>
+          <option *ngFor="let h of habitacionesHoy" [value]="h.idHabitacion">
+            {{ h.numero }} — {{ h.tipo }} — {{ h.precioPorNoche | number:'1.0-2' }}
+          </option>
+        </select>
+
+        <p class="info" *ngIf="habitacionesHoy.length === 0">No hay habitaciones disponibles hoy.</p>
+
+        <small *ngIf="reservaForm.get('idHabitacion')?.invalid && (reservaForm.get('idHabitacion')?.touched || reservaForm.get('idHabitacion')?.dirty)" class="error">
+          Selecciona una habitación válida disponible hoy.
+        </small>
+      </div>
+
+      <div>
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre" />
+      </div>
+
+      <div>
+        <label>Apellido</label>
+        <input type="text" formControlName="apellido" />
+      </div>
+
+      <div>
+        <label>DNI</label>
+        <input type="text" formControlName="dni" />
+      </div>
+
+      <div>
+        <label>Teléfono</label>
+        <input type="text" formControlName="telefono" />
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" />
+      </div>
+    </div>
+
+    <div class="grid-dates">
+      <div>
+        <label>Fecha Entrada</label>
+        <input type="date" formControlName="fechaEntrada" [attr.min]="minDate" />
+        <small *ngIf="reservaForm.get('fechaEntrada')?.hasError('fechaAnterior')" class="error">
+          La fecha no puede ser anterior a hoy.
+        </small>
+      </div>
+
+      <div>
+        <label>Fecha Salida</label>
+        <input type="date" formControlName="fechaSalida" [attr.min]="reservaForm.get('fechaEntrada')?.value || minDate" />
+        <small *ngIf="reservaForm.hasError('salidaAnteriorEntrada')" class="error">
+          La fecha de salida no puede ser menor que la entrada.
+        </small>
+      </div>
+
+      <div>
+        <label>Estado</label>
+        <select formControlName="estado">
+          <option value="PENDIENTE">Pendiente</option>
+          <option value="PAGADA">Pagada</option>
+          <option value="CANCELADA">Cancelada</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="totales">
+      <p>Noches: {{ noches }}</p>
+      <p *ngIf="total>0">Total: {{ total | currency:'USD' }}</p>
+    </div>
+
+    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+    <div *ngIf="successMsg" class="success">{{ successMsg }}</div>
+
+    <button type="submit" [disabled]="saving">Registrar Reserva</button>
+  </form>
+</div>

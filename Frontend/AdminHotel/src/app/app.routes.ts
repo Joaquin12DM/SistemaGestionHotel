@@ -3,6 +3,10 @@ import { LoginComponent } from './components/login/login';
 import { RegisterComponent } from './components/register/register';
 import { DashboardComponent } from './components/dashboard/dashboard';
 import { authGuard } from './guards/auth.guard';
+import { Habitaciones } from './components/room/habitaciones';
+import { Reservations } from './components/reservations/reservations';
+import { ReporteReservas } from './components/reporte-reservas/reporte-reservas';
+import { ListReservations } from './components/list-reservations/list-reservations';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,16 +17,10 @@ export const routes: Routes = [
     component: DashboardComponent,
     canActivate: [authGuard]  // Proteger la ruta del dashboard
   },
-  // Puedes agregar más rutas protegidas aquí:
-  // { 
-  //   path: 'reservations', 
-  //   component: ReservationsComponent, 
-  //   canActivate: [authGuard] 
-  // },
-  // { 
-  //   path: 'rooms', 
-  //   component: RoomsComponent, 
-  //   canActivate: [authGuard] 
-  // },
-  { path: '**', redirectTo: '/login' } // Ruta para manejar URLs no encontradas
+
+  {path: 'rooms', component: Habitaciones},
+    {path: 'reservations', component: Reservations},
+    {path: 'reporteReservas', component: ReporteReservas},
+    {path: 'listReservas', component: ListReservations},
+  { path: '**', redirectTo: '/login' } 
 ];

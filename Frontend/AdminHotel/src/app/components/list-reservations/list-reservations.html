@@ -1,0 +1,59 @@
+<!-- src/app/components/reservations/list-reservations.html -->
+<div class="list-reservas">
+  <header class="header">
+    <h2>Lista de Reservas</h2>
+    <div class="actions">
+      <button (click)="loadReservas()">Actualizar</button>
+    </div>
+  </header>
+
+  <div *ngIf="cargando" class="loading">Cargando reservaciones...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="!cargando && !error" class="table-reservas">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th (click)="toggleSort()" class="clickable">
+          Fecha Entrada
+          <span *ngIf="sortAsc">▲</span><span *ngIf="!sortAsc">▼</span>
+        </th>
+        <th>Fecha Salida</th>
+        <th>Estado</th>
+        <th>Habitación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="reservas.length === 0">
+        <td colspan="10" class="no-data">No hay reservaciones registradas</td>
+      </tr>
+
+      <tr *ngFor="let r of reservas">
+        <td>{{ r.nombre }}</td>
+        <td>{{ r.apellido }}</td>
+        <td>{{ r.dni }}</td>
+        <td>{{ r.telefono }}</td>
+        <td>{{ r.email }}</td>
+        <td>{{ r.fechaEntrada | date:'dd/MM/yyyy' }}</td>
+        <td>{{ r.fechaSalida | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <span class="badge" [ngClass]="{
+            'badge-pendiente': r.estado === 'PENDIENTE',
+            'badge-pagada': r.estado === 'PAGADA',
+            'badge-cancelada': r.estado === 'CANCELADA'
+          }">{{ r.estado }}</span>
+        </td>
+        <td>{{ r.idHabitacion }}</td>
+        <td class="actions-cell">
+          <!-- Puedes cambiar por navegación a detalle/edición -->
+          <button (click)="deleteReserva(r.id)" class="danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

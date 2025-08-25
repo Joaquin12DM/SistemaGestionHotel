@@ -1,0 +1,188 @@
+/* Contenedor principal */
+.habitaciones-container {
+  padding: 1.5rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9fafc;
+}
+
+/* Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.page-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.page-header .actions button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #0077cc;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.page-header .actions button:hover {
+  background-color: #005fa3;
+}
+
+/* Cards de estadísticas */
+.stats-cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.stat-card h4 {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Por tipo */
+.by-type {
+  margin-bottom: 1.5rem;
+}
+
+.by-type h4 {
+  margin-bottom: 0.5rem;
+}
+
+.type-list {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.type-list div {
+  margin-bottom: 0.5rem;
+}
+
+/* Tabla */
+.table-section {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.rooms-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.rooms-table th, .rooms-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.rooms-table th {
+  background-color: #f1f3f6;
+  font-weight: 600;
+}
+
+.rooms-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Imagen */
+.thumb {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Badges de estado */
+.badge-available {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.badge-occupied {
+  background-color: #f44336;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.badge-maint {
+  background-color: #ff9800;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+/* Botones de acciones en tabla */
+.rooms-table button {
+  margin-right: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0077cc;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.rooms-table button:hover {
+  background-color: #005fa3;
+}
+
+.rooms-table button.danger {
+  background-color: #e53935;
+}
+
+.rooms-table button.danger:hover {
+  background-color: #c62828;
+}
+
+/* Mensajes de carga y error */
+.loading {
+  color: #0077cc;
+  font-weight: bold;
+}
+
+.error {
+  color: #e53935;
+  font-weight: bold;
+}
+
+.no-data {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
