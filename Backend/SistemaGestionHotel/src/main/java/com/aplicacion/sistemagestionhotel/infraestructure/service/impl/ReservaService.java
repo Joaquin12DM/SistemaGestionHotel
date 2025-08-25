@@ -3,6 +3,7 @@ package com.aplicacion.sistemagestionhotel.infraestructure.service.impl;
 import com.aplicacion.sistemagestionhotel.domain.model.Cliente;
 import com.aplicacion.sistemagestionhotel.domain.model.Habitacion;
 import com.aplicacion.sistemagestionhotel.domain.model.Reserva;
+import com.aplicacion.sistemagestionhotel.domain.observer.ReservaObserver;
 import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.ClienteEntity;
 import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.HabitacionEntity;
 import com.aplicacion.sistemagestionhotel.infraestructure.Persitence.entities.ReservaEntity;
@@ -11,6 +12,7 @@ import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ClienteMapper;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.HabitacionMapper;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ReservaClienteMapper;
 import com.aplicacion.sistemagestionhotel.infraestructure.mapper.ReservaMapper;
+import com.aplicacion.sistemagestionhotel.infraestructure.observer.EmailReservaObserver;
 import com.aplicacion.sistemagestionhotel.infraestructure.repository.ClienteRepository;
 import com.aplicacion.sistemagestionhotel.infraestructure.repository.HabitacionRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +35,8 @@ public class ReservaService implements IReservaService {
     private final ClienteMapper clienteMapper;
     private final HabitacionRepository habitacionRepository;
     private final HabitacionMapper habitacionMapper;
+
+    private final EmailReservaObserver emailReservaObserver;
 
     @Override
     public List<Reserva> findAll() {
@@ -67,6 +71,7 @@ public class ReservaService implements IReservaService {
 
         ReservaEntity save = reservaRepository.save(entityRe);
 
+        emailReservaObserver.reservaCreada(reservaMapper.toDomain(save));
         return reservaMapper.toDomain(save);
     }
 
